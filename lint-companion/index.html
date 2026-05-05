@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lint Companion — guided lint adoption for teams migrating large codebases."
+    />
+    <title>Lint Companion · DX Tool Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="lc-skip" href="#main">Skip to content</a>
+
+    <header class="lc-header">
+      <div class="lc-header-inner">
+        <a href="#top" class="lc-logo">Lint Companion</a>
+        <nav aria-label="Primary">
+          <ul class="lc-nav">
+            <li><a href="#checks">Checks</a></li>
+            <li><a href="#migrations">Migrations</a></li>
+            <li><a href="#main">Playground</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="lc-hero" id="top">
+        <p class="lc-eyebrow">Developer experience tooling · Demo app</p>
+        <h1>Adopt lint rules without slowing shipping teams.</h1>
+        <p class="lc-lede">
+          Lint Companion turns noisy rule rollouts into guided migrations:
+          confidence scores, fix previews, and small pull-request-sized changes.
+        </p>
+        <div class="lc-actions">
+          <button type="button" class="lc-btn" id="lc-run">Run checks</button>
+          <a class="lc-btn lc-btn--ghost" href="../index.html#work"
+            >Back to portfolio</a
+          >
+        </div>
+      </section>
+
+      <section class="lc-section" id="checks">
+        <div class="lc-section-head">
+          <h2>Rule adoption board</h2>
+          <p>Track progress by package, owner, and estimated migration effort.</p>
+        </div>
+
+        <div class="lc-grid">
+          <article class="lc-card">
+            <h3>Overall readiness</h3>
+            <p class="lc-big" id="lc-score">72%</p>
+            <p class="lc-muted">Based on unresolved violations and test coverage.</p>
+          </article>
+
+          <article class="lc-card">
+            <h3>Recommended next rule</h3>
+            <p class="lc-rule-name">`no-floating-promises`</p>
+            <p class="lc-muted">High safety gain, low churn in touched files.</p>
+          </article>
+
+          <article class="lc-card">
+            <h3>Autofix eligible</h3>
+            <p class="lc-big lc-big--mono"><span id="lc-autofix">126</span> / 198</p>
+            <p class="lc-muted">Can be fixed with codemods and lint --fix.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="lc-section" id="migrations">
+        <div class="lc-panel">
+          <div class="lc-panel-head">
+            <h2>Migration queue</h2>
+            <button type="button" class="lc-btn lc-btn--small" id="lc-filter">
+              Show blockers only
+            </button>
+          </div>
+
+          <div class="lc-table-wrap">
+            <table class="lc-table">
+              <thead>
+                <tr>
+                  <th>Package</th>
+                  <th>Rule set</th>
+                  <th>Status</th>
+                  <th class="right">Open issues</th>
+                  <th>Owner</th>
+                </tr>
+              </thead>
+              <tbody id="lc-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="lc-footer">
+      <p>Lint Companion </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
